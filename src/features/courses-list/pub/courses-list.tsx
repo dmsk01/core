@@ -16,6 +16,7 @@ export async function CourseList({
 
     await revalidatePath(revalidatePagePath);
   };
+
   return (
     <div className="flex flex-col gap-3">
       {coursesList.map((course) => (

@@ -6,16 +6,21 @@ class CoursesRepository {
     (): Promise<CourseListElement[]> => dbClient.course.findMany(),
   );
 
-  createCourseElement = (
-    command: CreateListElementCommand,
-  ): Promise<CourseListElement> => {
+  createCourseElement = (command: CreateListElementCommand): any => {
     return dbClient.course.create({
       data: command,
     });
   };
 
   deleteCourseElement = (command: DeleteListElementCommand) => {
-    dbClient.course.delete({ where: { id: command.id } });
+    dbClient.course
+      .delete({ where: { id: command.id } })
+      .then((result) => {
+        console.log("Delete successful:", result);
+      })
+      .catch((error) => {
+        console.error("Delete failed:", error);
+      });
   };
 }
 
