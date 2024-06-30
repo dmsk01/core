@@ -75,7 +75,11 @@ export function CreateCourseForm({
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isCreateTransition}>
+        <Button
+          variant="destructive"
+          type="submit"
+          disabled={isCreateTransition}
+        >
           Add course
         </Button>
       </form>
